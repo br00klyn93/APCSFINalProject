@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>FinProj</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/animate.css') }}" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link href="https://code.jquery.com/jquery-3.4.1.js" />
+    <script src="main.js"></script>
+
+
+  </head>
+  <body onload="delays(); checkFiles();">
+    <div id="main-frame">
+      <header>
+        <div id="header">
+          <h1 class="animated fadeInDown">Dashboard</h1>
+          <!-- <img src="assets/pool.png" /> -->
+        </div>
+
+
+        <div id="box" class="animated fadeInLeft delay-1s">
+          <img id="main-img" onclick="shake(); selectPhoto();" src="{{ url_for('static', filename='images/camera.png') }}" />
+          <input id="photoSelect" type="file" accept="image/*" capture="camera" />
+        </div>
+      </header>
+
+
+
+      <!-- <div id="center" class="animated fadeIn">
+        <form id="toFlask" method="POST">
+          <img id="main-img" onclick="shake();" src="assets/camera.png" />
+        </form>
+
+
+    <input type="file" accept="image/*" capture="camera" /> -->
+
+
+
+      <footer>
+        <h1 class="animated fadeIn slower">My Papers</h1>
+
+        <!-- Blank placeholder in case there is no data -->
+        <div id="blank" class="animated fadeIn delay-2s">
+          <img src="{{ url_for('static', filename='images/head.png') }}" />
+          <h3>Huh... There's Nothing Here Yet...</h2>
+        </div>
+
+
+        <ul>
+          <li>My IB Presentation</li>
+          <li>English Project</li>
+          <li>Resume</li>
+        </ul>
+
+
+      </footer>
+
+
+
+</div>
+  </body>
+</html>
