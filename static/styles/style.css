@@ -139,4 +139,9 @@ h4 {
   font-family: apple;
   padding-top: 24%;
   color: white;
+  margin-top: 0;
+}
+
+#sub {
+  display:none;
 }

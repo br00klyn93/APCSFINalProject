@@ -18,6 +18,7 @@ function shake() {
 
 function finalSubmit() {
   var box = document.getElementById("box");
+  var submit = document.getElementById("sub");
 
   box.classList.remove("animated");
   box.classList.remove("fadeInLeft");
@@ -26,6 +27,7 @@ function finalSubmit() {
   setTimeout(function () {
     box.classList.add("animated");
     box.classList.add("bounceIn");
+    submit.click();
   }, 200);
 
 
