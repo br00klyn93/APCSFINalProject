@@ -7,7 +7,7 @@ html, body {
 
 @font-face {
   font-family: apple;
-	src: url('../static/fonts/sf.otf');
+	src: url('fonts/sf.otf');
 }
 
 header {
