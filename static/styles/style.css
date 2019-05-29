@@ -84,7 +84,7 @@ h2 {
   -webkit-box-shadow: -5px 11px 90px -48px rgba(0,0,0,0.75);
 -moz-box-shadow: -5px 11px 90px -48px rgba(0,0,0,0.75);
 box-shadow: -5px 11px 90px -48px rgba(0,0,0,0.75);
-
+animation-duration: .4s;
 }
 
 #photoSelect {
