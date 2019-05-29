@@ -22,6 +22,7 @@
 
         <div id="box" class="animated fadeInLeft delay-1s">
           <img id="main-img" onclick="shake(); selectPhoto();" src="{{ url_for('static', filename='images/camera.png') }}" />
+          <h4 id="submit" onclick="finalSubmit();">Tap to Submit</h4>
           <input id="photoSelect" type="file" accept="image/*" capture="camera" />
         </div>
       </header>
@@ -44,7 +45,7 @@
         <!-- Blank placeholder in case there is no data -->
         <div id="blank" class="animated fadeIn delay-2s">
           <img src="{{ url_for('static', filename='images/head.png') }}" />
-          <h3>Huh... There's Nothing Here Yet...</h2>
+          <h3>Huh... There's Nothing Here Yet...</h3>
         </div>
 
 
