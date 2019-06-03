@@ -32,7 +32,7 @@ def gcheck():
     if username == "":
         return render_template('login')
 
-    g.login(username, password)
+    g.login("bmclaury93@gmail.com", "brooklyn611")
     time.sleep(7)
 
     g.CheckDocument(text)
