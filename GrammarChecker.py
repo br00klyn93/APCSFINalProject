@@ -10,7 +10,6 @@ from selenium.webdriver.common.keys import Keys
 # imports time for getting the program to sleep while the grammarly does its work
 import time
 # uses the chrome driver to navigate grammarly
-import pickle
 # Used for sending cookies to a server URL
 import requests
 
