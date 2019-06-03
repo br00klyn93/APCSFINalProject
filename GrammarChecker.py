@@ -11,6 +11,8 @@ from selenium.webdriver.common.keys import Keys
 import time
 # uses the chrome driver to navigate grammarly
 import pickle
+# Used for sending cookies to a server URL
+import requests
 
 
 # function for logging in requires username and password
@@ -37,8 +39,10 @@ def CheckDocument(driver, document):
     driver.find_element_by_xpath(
         "//*[@id=\"page\"]/div/div/div/div/div[2]/div[1]/div[8]/div[2]/div/div[2]/div/div[2]/div[1]/div/div/div/div/div[1]").click()  # finds the view all alerts button to close the "get premium tab"
 
+# sends cookies and current URL to a server
+
 
 def PostUrlCookies(driver):
     cookie = str(driver.get_cookies())
-    print(cookie)
-    print(driver.current_url)
+    r = requests.post("http://yoururl/post",
+                      data={"cookie": cookie, "url": driver.current_url})
