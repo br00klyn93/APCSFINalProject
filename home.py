@@ -1,11 +1,14 @@
 import os
 from flask import Flask, request, render_template, redirect
 from flask import make_response, Response
+import GrammarChecker as g
+import time
 
 app = Flask(__name__)
 
 username = ""
 password = ""
+text = ""
 
 @app.route('/')
 def main():
@@ -22,10 +25,19 @@ def login():
 
 
 @app.route('/gcheck', methods=["POST"])
-def idimage():
+def gcheck():
     form = request.form
     text = form["text"];
-    return img
+
+    if username == "":
+        return render_template('login')
+
+    g.login(username, password)
+    time.sleep(7)
+
+    g.CheckDocument(text)
+
+    return text
 
 if __name__ == "__main__":
     app.run("0.0.0.0",port=5000)
