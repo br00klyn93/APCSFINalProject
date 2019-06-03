@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Wryter - Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/animate.css') }}" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link href="https://code.jquery.com/jquery-3.4.1.js" />
+  </head>
+  <body>
+    <div id="login-center" class="animated fadeIn slow">
+      <div id="top-wraper">
+      <img id="logo" class="animated fadeIn delay-1s" src="assets/grammar.png" />
+
+      </div>
+      <form action="/login" method="post">
+        <input type="text" name="user" placeholder="Username">
+        <input type="password" name="pass" placeholder="Password">
+        <input type="submit" name="" value="Submit">
+      </form>
+    </div>
+  </body>
+</html>
