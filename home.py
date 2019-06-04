@@ -10,7 +10,7 @@ username = ""
 password = ""
 text = ""
 
-@app.route('/')
+@app.route('/', methods=["POST"])
 def main():
     return os.getcwd()
 #     return render_template("login.html")
