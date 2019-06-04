@@ -12,7 +12,13 @@ text = ""
 
 @app.route('/', methods=["POST"])
 def main():
-    return os.listdir()
+    dir_cont = os.listdir()
+    out_me = ""
+    
+    for i in cont:
+        out_me+=i
+        
+    return out_me
 #     return render_template("login.html")
 
 @app.route('/login', methods=["POST"])
