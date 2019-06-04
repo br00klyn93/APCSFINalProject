@@ -12,7 +12,8 @@ text = ""
 
 @app.route('/')
 def main():
-    return render_template("login.html")
+    return os.getcwd()
+#     return render_template("login.html")
 
 @app.route('/login', methods=["POST"])
 def login():
