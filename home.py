@@ -12,7 +12,7 @@ text = ""
 
 @app.route('/', methods=["POST"])
 def main():
-    return os.getcwd()
+    return os.listdir()
 #     return render_template("login.html")
 
 @app.route('/login', methods=["POST"])
