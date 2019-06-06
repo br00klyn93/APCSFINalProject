@@ -15,7 +15,7 @@ import requests
 
 
 # function for logging in requires username and password
-
+driver = webdriver.PhantomJS()
 
 def login(driver, username, password):
 

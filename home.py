@@ -1,7 +1,7 @@
 import os
 from flask import Flask, request, render_template, redirect
 from flask import make_response, Response
-import GrammarChecker as g
+# import GrammarChecker as g
 import time
 
 app = Flask(__name__)
@@ -12,30 +12,26 @@ text = ""
 
 @app.route('/')
 def main():
-    return render_template("login.html")
-
-@app.route('/login', methods=["POST"])
-def login():
-    form = request.form
-
-    username = form["user"]
-    password = form["pass"]
-
     return render_template("index.html")
+
+@app.route('/', methods=["POST"])
+def getText():
+    form = request.form
+    image = form["image"]
 
 
 @app.route('/gcheck', methods=["POST"])
 def gcheck():
     form = request.form
-    text = form["text"];
+    text = form["text"]
 
-    if username == "":
-        return render_template('login')
+#     if username == "":
+#         return render_template('login')
 
-    g.login("bmclaury93@gmail.com", "brooklyn611")
-    time.sleep(7)
+#     g.login("bmclaury93@gmail.com", "brooklyn611")
+#     time.sleep(7)
 
-    g.CheckDocument(text)
+#     g.CheckDocument(text)
 
     return text
 
