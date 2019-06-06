@@ -6,7 +6,7 @@ import GrammarChecker as G
 # imports time
 import time
 from selenium import webdriver
-driver = webdriver.Chrome("chromedriver.exe")
+driver = webdriver.PhantomJS()
 # timeouts if grammarly takes mre than 10 seconds for the sake of server
 driver.set_page_load_timeout("10")
 # instrcts chrome to go to the signin page
@@ -22,7 +22,6 @@ Anonymous.
 
 
 
-Book report #2
 The Maze Runner
 by James Dashner 
 Letter by Nikhil Alapati
