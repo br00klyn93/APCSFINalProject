@@ -29,15 +29,15 @@ def gcheck():
     form = request.form
     text = form["text"];
 
-    if username == "":
-        return render_template('login')
-
-    g.login("bmclaury93@gmail.com", "brooklyn611")
-    time.sleep(7)
-
-    g.CheckDocument(text)
-
-    return text
+    data = {'text': text}
+    params = {
+        'mkt':'en-us',
+        'mode':'proof'
+        }
+    headers = {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Ocp-Apim-Subscription-Key': api_key,
+        }
 
 if __name__ == "__main__":
     app.run("0.0.0.0",port=5000)
