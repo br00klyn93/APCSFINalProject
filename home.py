@@ -10,31 +10,20 @@ username = ""
 password = ""
 text = ""
 
-@app.route('/', methods=["POST"])
+@app.route('/')
 def main():
-    dir_cont = os.listdir()
-    out_me = ""
-    
-    for i in cont:
-        out_me+=i
-        
-    return out_me
-#     return render_template("login.html")
-
-@app.route('/login', methods=["POST"])
-def login():
-    form = request.form
-
-    username = form["user"]
-    password = form["pass"]
-
     return render_template("index.html")
+
+@app.route('/', methods=["POST"])
+def getText():
+    form = request.form
+    image = form["image"]
 
 
 @app.route('/gcheck', methods=["POST"])
 def gcheck():
     form = request.form
-    text = form["text"];
+    text = form["text"]
 
 #     if username == "":
 #         return render_template('login')
