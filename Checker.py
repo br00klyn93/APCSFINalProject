@@ -12,7 +12,7 @@ driver.set_page_load_timeout("10")
 # instrcts chrome to go to the signin page
 driver.get("https://www.grammarly.com/signin?allowUtmParams=true")
 # calls the function to log in
-G.login(driver, "y555417@nwytg.net", "Nikhil2001")
+G.login(driver, "y555417@nwytg.net", "password")
 time.sleep(7)
 # calls the check document function here is a sample crappy essay written by me in 8th or 9th grade
 G.CheckDocument(driver, """Dear Thomas,
