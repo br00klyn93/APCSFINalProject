@@ -1,4 +1,7 @@
 Flask
 requests
 gunicorn
-selenium
+cv2
+editdistance
+tensorflow
+numpy
