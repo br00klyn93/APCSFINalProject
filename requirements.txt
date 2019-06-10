@@ -1,7 +1,8 @@
 Flask
 requests
 gunicorn
-opencv
+opencv-python
+opencv-contrib-python
 editdistance
 tensorflow
 numpy
