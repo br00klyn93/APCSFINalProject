@@ -1,3 +1,6 @@
+!pip install opencv-python
+!apt update && apt install -y libsm6 libxext6
+
 import os
 from flask import Flask, request, render_template, redirect
 from flask import make_response, Response
