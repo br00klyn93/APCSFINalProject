@@ -1,6 +1,7 @@
 import os
 from flask import Flask, request, render_template, redirect
 from flask import make_response, Response
+from Main import first
 # import GrammarChecker as g
 import time
 import json
@@ -13,6 +14,7 @@ text = ""
 
 @app.route('/')
 def main():
+    first()
     return render_template("index.html")
 
 @app.route('/', methods=["POST"])

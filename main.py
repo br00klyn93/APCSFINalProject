@@ -97,7 +97,7 @@ def infer(model, fnImg):
 	print('Probability:', probability[0])
 
 
-def main():
+def first():
 	"main function"
 	# optional command line args
 	# parser = argparse.ArgumentParser()
@@ -143,4 +143,4 @@ def main():
 
 
 if __name__ == '__main__':
-	main()
+	first()
