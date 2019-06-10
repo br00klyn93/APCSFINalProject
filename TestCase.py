@@ -109,11 +109,11 @@ def first():
 	#
 	# args = parser.parse_args()
 	#
-	# decoderType = DecoderType.BestPath
+	decoderType = DecoderType.BestPath
 	# # if args.beamsearch:
 	# # 	decoderType = DecoderType.BeamSearch
 	#
-	# decoderType = DecoderType.WordBeamSearch
+	decoderType = DecoderType.WordBeamSearch
 	#
 	# # train or validate on IAM dataset
 	# if True:
