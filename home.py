@@ -14,7 +14,7 @@ import os
 
 app = Flask(__name__)
 
-UPLOAD_FOLDER = 'static/data'
+UPLOAD_FOLDER = '/app/static/data'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -23,7 +23,7 @@ text = ""
 
 @app.route('/')
 def main():
-    for i in os.walk(os.getcwd()):
+    for i in os.walk('/app/static'):
         print(i)
 
     return render_template("index.html")
