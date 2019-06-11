@@ -27,7 +27,9 @@ def main():
 @app.route('/', methods=["POST"])
 def getText():
     form = request.form
-    image = form["image"]
+    # image = form["image"]
+
+    image = request.files.get('image', '')
     filename = secure_filename(image.filename)
     image.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
