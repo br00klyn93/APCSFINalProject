@@ -16,6 +16,7 @@ app = Flask(__name__)
 
 UPLOAD_FOLDER = '/app/static/data'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
+LD_LIBRARY_PATH='/app'
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 

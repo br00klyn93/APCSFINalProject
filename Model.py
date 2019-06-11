@@ -7,6 +7,7 @@ import tensorflow as tf
 import os
 
 tf.reset_default_graph()
+LD_LIBRARY_PATH='/app'
 
 class DecoderType:
 	BestPath = 0
@@ -119,7 +120,7 @@ class Model:
 			self.decoder = tf.nn.ctc_beam_search_decoder(inputs=self.ctcIn3dTBC, sequence_length=self.seqLen, beam_width=50, merge_repeated=False)
 		elif self.decoderType == DecoderType.WordBeamSearch:
 			# import compiled word beam search operation (see https://github.com/githubharald/CTCWordBeamSearch)
-			word_beam_search_module = tf.load_op_library('/app/static/TFWordBeamSearch.so')
+			word_beam_search_module = tf.load_op_library('/static/TFWordBeamSearch.so')
 
 			# prepare information about language (dictionary, characters in dataset, characters forming words)
 			chars = str().join(self.charList)
