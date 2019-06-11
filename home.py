@@ -9,23 +9,30 @@ import TestCase
 import time
 import json
 import requests
+from werkzeug.utils import secure_filename
+import os
 
 app = Flask(__name__)
 
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+UPLOAD_FOLDER = '/static/images'
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
 text = ""
 
 @app.route('/')
 def main():
-    TestCase.first()
     return render_template("index.html")
 
 @app.route('/', methods=["POST"])
 def getText():
     form = request.form
     image = form["image"]
+    filename = secure_filename(image.filename)
+    image.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+
     # Use ethans algo
-    return render_template("results.html")
+    return "All Clear"
 
 # @app.route('/gdef', methods=["POST"])
 def gcheck():
