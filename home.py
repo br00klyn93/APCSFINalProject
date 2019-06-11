@@ -23,8 +23,7 @@ text = ""
 
 @app.route('/')
 def main():
-    for i in os.walk('/app/static'):
-        print(i)
+    TestCase.first()
 
     return render_template("index.html")
 
