@@ -14,7 +14,7 @@ import os
 
 app = Flask(__name__)
 
-UPLOAD_FOLDER = '/static/images'
+UPLOAD_FOLDER = 'static/data'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -23,6 +23,9 @@ text = ""
 
 @app.route('/')
 def main():
+    for i in os.walk(os.getcwd()):
+        print(i)
+
     return render_template("index.html")
 
 @app.route('/', methods=["POST"])
@@ -30,12 +33,13 @@ def getText():
     form = request.form
     # image = form["image"]
 
+
     image = request.files.get('image', '')
     filename = secure_filename(image.filename)
     image.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    return redirect(url_for('uploaded_file', filename=filename))
 
     # Use ethans algo
-    return "All Clear"
 
 # @app.route('/gdef', methods=["POST"])
 def gcheck():
