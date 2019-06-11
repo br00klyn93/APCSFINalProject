@@ -6,6 +6,7 @@ import numpy as np
 import tensorflow as tf
 import os
 
+tf.reset_default_graph()
 
 class DecoderType:
 	BestPath = 0
