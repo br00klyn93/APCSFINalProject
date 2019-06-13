@@ -38,7 +38,7 @@ def crop():
     os.chdir("{}/static/data".format(os.getcwd()))
 
     with open("test.png", "wb") as image_file:
-       fh.write(base64.decodebytes(encoded_string))
+       image_file.write(base64.decodebytes(encoded_string))
 
     return render_template('crop.html')
 
