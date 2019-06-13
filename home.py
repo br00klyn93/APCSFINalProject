@@ -38,7 +38,7 @@ def crop():
       return "My Cock"
 
 
-@app.route('/', methods=["POST"])
+@app.route('/gay', methods=["POST"])
 def getText():
     form = request.form
     image = form["image"]
