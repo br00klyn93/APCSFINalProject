@@ -24,7 +24,7 @@
           <img id="main-img" onclick="shake(); selectPhoto();" src="{{ url_for('static', filename='images/camera.png') }}" />
 
           <form action="/crop" method="post">
-            <!-- <h4 id="submit" onclick="finalSubmit();">Tap to Submit</h4> -->
+            <h4 id="submit" onclick="finalSubmit();">Tap to Submit</h4>
 
             <input id="photoSelect" name="image" type="file" accept="image/*" capture="camera" />
             <input id="sub" type="submit" value="Submit">

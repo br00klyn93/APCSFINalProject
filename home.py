@@ -32,7 +32,8 @@ def main():
 def crop():
     # image = request.files["image"]
 
-    print(request.files)
+    for i in request.form:
+        print(i)
 
     # encoded_string = base64.b64encode(image.read())
     #
@@ -41,23 +42,6 @@ def crop():
     #
     # with open("test.png", "wb") as image_file:
     #    fh.write(base64.decodebytes(encoded_string))
-    if request.method == 'POST':
-        # check if the post request has the file part
-        if 'file' not in request.files:
-            flash('No file part')
-            return redirect(request.url)
-        file = request.files['file']
-        # if user does not select file, browser also
-        # submit a empty part without filename
-        if file.filename == '':
-            flash('No selected file')
-            return redirect(request.url)
-        if file:
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return redirect(url_for('uploaded_file',
-                                    filename=filename))
-
     return render_template('crop.html')
 
 
