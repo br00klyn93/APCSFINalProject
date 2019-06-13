@@ -16,7 +16,7 @@
     <div id="crop-container">
       <img onload="init()" id="my-image" src="{{ url_for('static', filename='images/test.png') }}" />
 
-      <form action="/" method="POST">
+      <form action="/crop" method="POST">
 
         <input id="crop-value" type="hidden" name="size" value="" size ="40" />
 
