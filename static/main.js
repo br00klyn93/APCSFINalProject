@@ -46,6 +46,16 @@ function delays() {
   }
 }
 
+function selectPhoto() {
+     var elem = document.getElementById("photoSelect");
+     if(elem && document.createEvent) {
+        var evt = document.createEvent("MouseEvents");
+        evt.initEvent("click", true, false);
+        elem.dispatchEvent(evt);
+     }
+
+}
+
 function onInit() {
     var myElement = document.getElementById('footer-swipe');
 

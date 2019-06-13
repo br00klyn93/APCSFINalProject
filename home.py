@@ -26,7 +26,7 @@ text = ""
 def main():
     return render_template("index.html")
 
-@app.route('/crop')
+@app.route('/crop', methods=["POST"])
 def crop():
     form = request.form
     image = form["image"]
