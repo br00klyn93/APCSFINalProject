@@ -28,25 +28,25 @@ text = ""
 def main():
     return render_template("index.html")
 
-@app.route('/crop', methods=["POST"])
-def crop():
-    if request.method == 'POST':
-        # check if the post request has the file part
-        if 'image' not in request.files:
-            flash('No file part')
-            return redirect(request.url)
-        file = request.files['image']
-        # if user does not select file, browser also
-        # submit a empty part without filename
-        if file.filename == '':
-            flash('No selected file')
-            return redirect(request.url)
-        if file:
-            filename = "test.png"
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return redirect(url_for('uploaded_file', filename=filename))
+# @app.route('/crop', methods=["POST"])
+# def crop():
+#     if request.method == 'POST':
+#         # check if the post request has the file part
+#         if 'image' not in request.files:
+#             flash('No file part')
+#             return redirect(request.url)
+#         file = request.files['image']
+#         # if user does not select file, browser also
+#         # submit a empty part without filename
+#         if file.filename == '':
+#             flash('No selected file')
+#             return redirect(request.url)
+#         if file:
+#             filename = "test.png"
+#             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+#             return redirect(url_for('uploaded_file', filename=filename))
 
-    return render_template('crop.html')
+#     return render_template('crop.html')
 
 
 @app.route('/', methods=["POST"])
@@ -86,8 +86,8 @@ def gcheck():
     d = json.dumps(r.text)
 
     fin_out = d["results"][0]["lexicalEntries"][0]["entries"][0]["senses"][0]["definitions"][0] + "[" + d["results"][0]["lexicalEntries"][0]["entries"][0]["senses"][0]["examples"][0]["text"]
-
-    return fin_out
+    
+    return render_template("index.html", variable=fin_out)
 
 if __name__ == "__main__":
     app.run("0.0.0.0",port=5000)
