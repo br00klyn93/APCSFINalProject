@@ -34,12 +34,12 @@ def crop():
 
     encoded_string = base64.b64encode(image.read())
 
-    os.mkdir("static")
+    # os.mkdir("static")
     os.chdir("{}/static/data".format(os.getcwd()))
 
     with open("test.png", "wb") as image_file:
        fh.write(base64.decodebytes(encoded_string))
-       
+
     return render_template('crop.html')
 
 
