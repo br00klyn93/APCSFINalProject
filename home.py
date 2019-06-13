@@ -36,9 +36,8 @@ def crop():
     with open(image, "rb") as image_file:
         encoded_string = base64.b64encode(image_file.read())
 
-    try:
-        os.mkdir("static")
-        os.chdir("{}/static/data".format(os.getcwd()))
+    os.mkdir("static")
+    os.chdir("{}/static/data".format(os.getcwd()))
 
     with open("test.png", "wb") as image_file:
        fh.write(base64.decodebytes(encoded_string))
