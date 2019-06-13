@@ -49,8 +49,8 @@ def main():
 #     return render_template('crop.html')
 
 
-@app.route('/', methods=["POST"])
-def getText():
+# @app.route('/', methods=["POST"])
+# def getText():
     # form = request.form
     # image = form["image"]
     #
@@ -71,7 +71,7 @@ def getText():
 
 #     TestCase.first()
 
-    return render_template
+  
 
 @app.route('/gdef', methods=["POST"])
 def gcheck():
@@ -89,7 +89,7 @@ def gcheck():
 
     fin_out = d["results"][0]["lexicalEntries"][0]["entries"][0]["senses"][0]["definitions"][0] + "[" + d["results"][0]["lexicalEntries"][0]["entries"][0]["senses"][0]["examples"][0]["text"]
     
-    return render_template("index.html", variable=fin_out)
+    return fin_out
 
 if __name__ == "__main__":
     app.run("0.0.0.0",port=5000)
