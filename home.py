@@ -28,50 +28,34 @@ text = ""
 def main():
     return render_template("index.html")
 
-# @app.route('/crop', methods=["POST"])
-# def crop():
-#     if request.method == 'POST':
-#         # check if the post request has the file part
-#         if 'image' not in request.files:
-#             flash('No file part')
-#             return redirect(request.url)
-#         file = request.files['image']
-#         # if user does not select file, browser also
-#         # submit a empty part without filename
-#         if file.filename == '':
-#             flash('No selected file')
-#             return redirect(request.url)
-#         if file:
-#             filename = "test.png"
-#             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-#             return redirect(url_for('uploaded_file', filename=filename))
+@app.route('/crop', methods=["POST"])
+def crop():
+    if request.method == 'POST':
+      f = request.files['crop_image']
 
-#     return render_template('crop.html')
+      f.save(secure_filename(f.filename))
+        
+      return "My Cock"
 
 
-# @app.route('/', methods=["POST"])
-# def getText():
-    # form = request.form
-    # image = form["image"]
-    #
-    # encoded_string = ""
-    #
-    # with open(image, "rb") as image_file:
-    #     encoded_string = base64.b64encode(image_file.read())
-    #
-    # try:
-    #     os.mkdir("static")
-    #     os.chdir("{}/static/data".format(os.getcwd()))
-    #
-    # with open("test.png", "wb") as image_file:
-    #    fh.write(base64.decodebytes(encoded_string))
+@app.route('/', methods=["POST"])
+def getText():
+    form = request.form
+    image = form["image"]
+    
+    if request.method == 'POST':
+      f = request.files['image']
+
+      f.save(secure_filename(f.filename))
+        
+      return render_template('crop.html')
 
 
     # test.png exists
 
 #     TestCase.first()
 
-  
+
 
 @app.route('/gdef', methods=["POST"])
 def gcheck():
