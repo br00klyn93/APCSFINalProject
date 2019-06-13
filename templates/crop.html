@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Wryter - Crop</title>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.js"></script> -->
+    <link href="{{ url_for('static', filename='styles/croppr.min.css') }}" rel="stylesheet"/>
+    <link href="{{ url_for('static', filename='styles/style.css') }}" rel="stylesheet"/>
+    <script src="{{ url_for('static', filename='croppr.min.js') }}"></script>
+
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+  </head>
+  <body style="overflow: hidden">
+
+    <div id="crop-container">
+      <img onload="init()" id="my-image" src="{{ url_for('static', filename='images/test.png') }}" />
+
+      <form action="/" method="POST">
+
+        <input id="crop-value" type="hidden" name="size" value="" size ="40" />
+
+        <input id="done-btn" type="submit" name="submit" value="I'm All Done...">
+      </form>
+    </div>
+
+
+
+
+
+
+  </body>
+</html>

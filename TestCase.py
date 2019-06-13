@@ -95,6 +95,7 @@ def infer(model, fnImg):
 	(recognized, probability) = model.inferBatch(batch, True)
 	print('Recognized:', '"' + recognized[0] + '"')
 	print('Probability:', probability[0])
+	return recognized[0]
 
 
 def first():
@@ -113,7 +114,7 @@ def first():
 	# # if args.beamsearch:
 	# # 	decoderType = DecoderType.BeamSearch
 	#
-	decoderType = DecoderType.WordBeamSearch
+	# decoderType = DecoderType.WordBeamSearch
 	#
 	# # train or validate on IAM dataset
 	# if True:

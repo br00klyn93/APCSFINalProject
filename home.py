@@ -4,13 +4,13 @@
 import os
 from flask import Flask, request, render_template, redirect
 from flask import make_response, Response
+import base64
 import TestCase
 # import GrammarChecker as g
 import time
 import json
 import requests
 from werkzeug.utils import secure_filename
-import os
 
 app = Flask(__name__)
 
@@ -24,24 +24,51 @@ text = ""
 
 @app.route('/')
 def main():
-    TestCase.first()
-
     return render_template("index.html")
+
+@app.route('/crop')
+def crop():
+    form = request.form
+    image = form["image"]
+
+    encoded_string = ""
+
+    with open(image, "rb") as image_file:
+        encoded_string = base64.b64encode(image_file.read())
+
+    try:
+        os.mkdir("static")
+        os.chdir("{}/static/data".format(os.getcwd()))
+
+    with open("test.png", "wb") as image_file:
+       fh.write(base64.decodebytes(encoded_string))
+
+    return render_template('crop.html')
+
 
 @app.route('/', methods=["POST"])
 def getText():
-    form = request.form
+    # form = request.form
     # image = form["image"]
+    #
+    # encoded_string = ""
+    #
+    # with open(image, "rb") as image_file:
+    #     encoded_string = base64.b64encode(image_file.read())
+    #
+    # try:
+    #     os.mkdir("static")
+    #     os.chdir("{}/static/data".format(os.getcwd()))
+    #
+    # with open("test.png", "wb") as image_file:
+    #    fh.write(base64.decodebytes(encoded_string))
 
 
-    image = request.files.get('image', '')
-    filename = secure_filename(image.filename)
-    image.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-    return redirect(url_for('uploaded_file', filename=filename))
+    # test.png exists
 
-    # Use ethans algo
+    TestCase.first()
 
-# @app.route('/gdef', methods=["POST"])
+@app.route('/gdef', methods=["POST"])
 def gcheck():
     form = request.form
     word = form["word"]

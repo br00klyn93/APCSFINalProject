@@ -46,14 +46,45 @@ function delays() {
   }
 }
 
-function selectPhoto() {
-     var elem = document.getElementById("photoSelect");
-     if(elem && document.createEvent) {
-        var evt = document.createEvent("MouseEvents");
-        evt.initEvent("click", true, false);
-        elem.dispatchEvent(evt);
-     }
+function onInit() {
+    var myElement = document.getElementById('footer-swipe');
 
+    // create a simple instance
+    // by default, it only adds horizontal recognizers
+    var mc = new Hammer(myElement);
+
+    mc.get('swipe').set({
+      direction: Hammer.DIRECTION_ALL,
+      threshold: 0.1,
+      velocity:0.1
+    });
+
+
+    // listen to events...
+    mc.on("swipeup swipedown", function(ev) {
+        console.log(ev.type);
+        myElement.classList.toggle("down");
+
+        if(ev.type == "swipeup") {
+          if(myElement.classList.contains("up")) {
+            console.log("ree");
+          } else {
+            myElement.classList.toggle("up");
+            myElement.classList.toggle("down");
+          }
+        }
+    });
+
+}
+
+function init() {
+  var croppr = new Croppr('#my-image', {
+    aspectRatio: .3168,
+    onCropEnd: function(value) {
+      document.getElementById("crop-value").value = value.x + "," + value.y + "," + value.width + "," + value.height;
+      console.log(value.x, value.y, value.width, value.height);
+    }
+  });
 }
 
 function checkFiles() {
