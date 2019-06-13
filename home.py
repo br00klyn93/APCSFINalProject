@@ -69,7 +69,9 @@ def getText():
 
     # test.png exists
 
-    TestCase.first()
+#     TestCase.first()
+
+    return render_template
 
 @app.route('/gdef', methods=["POST"])
 def gcheck():
