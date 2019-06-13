@@ -31,12 +31,9 @@ def crop():
     form = request.form
     image = form["image"]
 
-    encoded_string = ""
+    encoded_string = base64.b64encode(image.read())
 
-    with open(image, "rb") as image_file:
-        encoded_string = base64.b64encode(image_file.read())
-
-    os.mkdir("static")
+    # os.mkdir("static")
     os.chdir("{}/static/data".format(os.getcwd()))
 
     with open("test.png", "wb") as image_file:
