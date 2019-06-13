@@ -29,7 +29,7 @@ def main():
 @app.route('/crop', methods=["POST"])
 def crop():
     form = request.form
-    image = form["image"]
+    image = request.files["image"]
 
     encoded_string = base64.b64encode(image.read())
 
